@@ -195,8 +195,10 @@ app.post('/api/trades/marketTrade', async (req, res) => {
         console.log(err);
         res.status(500).send();
     }
-})
+});
 
-app.listen(3001, () => {
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
     console.log("app is running");
 });
