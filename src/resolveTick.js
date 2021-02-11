@@ -79,9 +79,9 @@ const msToNextTick = timeOfNextTick.diff(moment());
 
 setTimeout(async () => {
 
-    await main();
+    //await main();
     setInterval(async () => {
-        await main();
+        //await main();
     }, frequencyInMs);
 
 }, msToNextTick);
