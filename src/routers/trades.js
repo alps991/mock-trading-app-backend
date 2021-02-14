@@ -16,6 +16,8 @@ router.post('/api/trades/market', validateTrade, async (req, res) => {
 
         user.balances[currencyToSell] -= quantityToSell;
         user.balances[currencyToBuy] += quantityToBuy;
+        user.balances[currencyToSell] = roundQuantity(user.balances[currencyToSell], currencyToSell);
+        user.balances[currencyToBuy] = roundQuantity(user.balances[currencyToBuy], currencyToBuy);
 
         const newTrade = {
             currencyToSell,

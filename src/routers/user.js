@@ -35,6 +35,7 @@ router.get('/api/users/:id', async (req, res) => {
 router.post('/api/users/:id', async (req, res) => {
     try {
         const id = req.params.id;
+        const { displayName } = req.body;
         const userRes = await db.ref(`users/${id}/balances`).once('value');
         const user = userRes.val();
         if (user) {
@@ -53,7 +54,9 @@ router.post('/api/users/:id', async (req, res) => {
                 BTC: 0,
                 ETH: 0,
                 LTC: 0,
-            }, totalValue: 10000
+            },
+            totalValue: 10000,
+            displayName,
         };
 
         await db.ref(`users/${id}`).set(defaultValues);

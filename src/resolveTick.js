@@ -1,6 +1,6 @@
 const axios = require('axios');
 const moment = require('moment');
-const Heap = require('heap');
+//const Heap = require('heap');
 const { db } = require('./firebase/firebase');
 
 const main = async () => {
@@ -79,9 +79,9 @@ const msToNextTick = timeOfNextTick.diff(moment());
 
 setTimeout(async () => {
 
-    //await main();
+    await main();
     setInterval(async () => {
-        //await main();
+        await main();
     }, frequencyInMs);
 
 }, msToNextTick);
